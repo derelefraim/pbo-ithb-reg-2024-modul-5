@@ -1,10 +1,7 @@
 package View;
 
 import java.awt.BorderLayout;
-// import java.awt.GridLayout;
 
-// import javax.swing.BorderFactory;
-// import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,7 +16,7 @@ public class MainMenu {
         
         JFrame mainFrame = new JFrame("MAIN MENU");
 
-        // mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         mainFrame.setSize(200, 250);
         mainFrame.setLocationRelativeTo(null); 
         
@@ -34,7 +31,7 @@ public class MainMenu {
 
         // findButton.addActionListener(e -> {
         //     mainFrame.dispose();
-        //     new FindDataScreen();
+        //     
         // });
 
         // exitButton.addActionListener(e -> {

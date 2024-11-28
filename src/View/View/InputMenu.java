@@ -13,10 +13,8 @@ import java.util.Calendar;
 import java.util.Properties;
 
 public class InputMenu {
-    // Komponen utama
     private JFrame frame;
 
-    // Form fields
     private JTextField nikField, namaField, tempatLahirField, alamatField, rtRwField,
             kelDesaField, kecamatanField, statusPerkawinanField, pekerjaanField, berlakuHinggaField, kotaPembuatanField, tanggalPembuatanField;
     private JComboBox<String> golDarahBox, agamaBox, kewarganegaraanBox;
@@ -30,7 +28,6 @@ public class InputMenu {
 
     private JDatePickerImpl createDatePicker() {
         UtilDateModel model = new UtilDateModel();
-        // Setting up properties for date picker
         Properties properties = new Properties();
         properties.put("text.today", "Today");
         properties.put("text.month", "Month");
@@ -59,17 +56,14 @@ public class InputMenu {
     }
 
     private void initInputMenu() {
-        // Inisialisasi JFrame
         frame = new JFrame("Form Input KTP");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(600, 700);
         frame.setLayout(new BorderLayout());
 
-        // Panel utama
         JPanel mainPanel = new JPanel(new GridLayout(20, 2, 10, 5));
         frame.add(mainPanel, BorderLayout.CENTER);
 
-        // Fields
         mainPanel.add(new JLabel("NIK:"));
         nikField = new JTextField();
         mainPanel.add(nikField);
@@ -82,11 +76,9 @@ public class InputMenu {
         tempatLahirField = new JTextField();
         mainPanel.add(tempatLahirField);
 
-        // Ubah kode ini untuk menggunakan enum
         mainPanel.add(new JLabel("Jenis Kelamin:"));
         JPanel jenisKelaminPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-        // Membuat radio button berdasarkan enum JenisKelamin
         JRadioButton lakiLakiButton = new JRadioButton(JenisKelamin.LAKI_LAKI.getLabel());
         JRadioButton perempuanButton = new JRadioButton(JenisKelamin.PEREMPUAN.getLabel());
         ButtonGroup jenisKelaminGroup = new ButtonGroup();
@@ -130,7 +122,6 @@ public class InputMenu {
         kecamatanField = new JTextField();
         mainPanel.add(kecamatanField);
 
-        // Agama ComboBox using Enum
         mainPanel.add(new JLabel("Agama:"));
         agamaBox = new JComboBox<>();
         for (Agama agama : Agama.values()) {
@@ -138,7 +129,6 @@ public class InputMenu {
         }
         mainPanel.add(agamaBox);
 
-        // Kewarganegaraan ComboBox using Enum
         mainPanel.add(new JLabel("Kewarganegaraan:"));
         kewarganegaraanBox = new JComboBox<>();
         for (Kewarganegaraan kewarganegaraan : Kewarganegaraan.values()) {
@@ -178,7 +168,6 @@ public class InputMenu {
         tanggalPembuatanField = new JTextField();
         mainPanel.add(tanggalPembuatanField);
 
-        // Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout());
         submitButton = new JButton("Submit");
         cancelButton = new JButton("Cancel");
@@ -186,13 +175,11 @@ public class InputMenu {
         buttonPanel.add(cancelButton);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Action Listeners
         uploadFotoButton.addActionListener(e -> uploadFile(fotoLabel));
         uploadTandaTanganButton.addActionListener(e -> uploadFile(tandaTanganLabel));
         submitButton.addActionListener(e -> handleSubmit());
         cancelButton.addActionListener(e -> frame.dispose());
 
-        // Tampilkan JFrame
         frame.setVisible(true);
     }
 
